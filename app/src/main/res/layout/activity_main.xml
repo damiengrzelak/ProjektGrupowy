@@ -1,17 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.damian.projektgrupowy.view.custom.CustomDrawer xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.damian.projektgrupowy.MainActivity">
+    android:layout_height="match_parent">
+    <!--Empty request focus to disallow default focus go into edit text and show keyboard on start-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+    <FrameLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:tag="not useless used to fix bug"
+            tools:ignore="UselessParent">
+
+            <requestFocus />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/top_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true" />
+            <!-- The main content view -->
+            <FrameLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/top_bar" />
+            <!--android:layout_above="@+id/bottom_bar"-->
+            <!--<fragment-->
+                <!--android:id="@+id/bottom_bar"-->
+                <!--class="pl.eurocash.gastroapp.view.fragment.navigation.BottomBarFragment"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentBottom="true" />-->
+        </RelativeLayout>
+
+        <!--Progress views-->
+        <RelativeLayout
+            android:id="@+id/activity_main_small_progress_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:visibility="gone">
+
+            <!--<ProgressBar-->
+                <!--android:id="@+id/progress_view"-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:indeterminate="false"-->
+                <!--android:theme="@style/AppTheme.WhiteAccent" />-->
+
+
+        </RelativeLayout>
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/activity_main_big_progress_view"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginTop="50dp"-->
+            <!--android:layout_marginBottom="50dp"-->
+            <!--android:background="@color/background_light_color"-->
+            <!--android:visibility="gone">-->
+
+            <!--<ProgressBar-->
+                <!--android:id="@+id/progress_big_view"-->
+                <!--android:layout_width="60dp"-->
+                <!--android:layout_height="60dp"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:theme="@style/AppTheme.WhiteAccent" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_above="@+id/progress_big_view"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:text="@string/loading"-->
+                <!--android:textSize="40sp" />-->
+
+        <!--</RelativeLayout>-->
+    </FrameLayout>
+
+
+
+    <!-- The navigation drawer -->
+    <!--<FrameLayout-->
+        <!--android:id="@+id/left_drawer"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="end"-->
+        <!--android:layout_marginBottom="50dp"-->
+        <!--android:layout_marginTop="50dp">-->
+
+        <!--<fragment-->
+            <!--android:id="@+id/activity_main_left_menu_fragment"-->
+            <!--class="pl.eurocash.gastroapp.view.fragment.navigation.LeftMenuFragment"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
+    <!--</FrameLayout>-->
+
+</com.example.damian.projektgrupowy.view.custom.CustomDrawer>
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:id="@+id/activity_main"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:paddingBottom="@dimen/activity_vertical_margin"-->
+    <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
+    <!--android:paddingRight="@dimen/activity_horizontal_margin"-->
+    <!--android:paddingTop="@dimen/activity_vertical_margin"-->
+    <!--tools:context="com.example.damian.projektgrupowy.MainActivity">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Hello World!" />-->
+    <!--</RelativeLayout>-->
