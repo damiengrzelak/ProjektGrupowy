@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">ProjektGrupowy</string>
+
+    <!--LOGIN PAGEES -->
+    <string name="wrong_login_data">Błędne dane logowania!</string>
+    <string name="login">LOGOWANIE</string>
+    <string name="login_hint">Login</string>
+    <string name="password_hint">Hasło</string>
+    <string name="password_forgot">W razie problemów z logowaniem prosimy o kontakt na andres dgrzelak@9bits.pl</string>
+    <string name="login_button_text">Zaloguj się</string>
+
+    <!--FontAwesome-->
+    <string name="font_awesome_icon_eye">&#xf06e;</string>
+
 </resources>
