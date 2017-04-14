@@ -21,6 +21,7 @@ import android.widget.RelativeLayout;
 
 import com.example.damian.projektgrupowy.core.BaseActivity;
 import com.example.damian.projektgrupowy.view.custom.CustomDrawer;
+import com.example.damian.projektgrupowy.view.fragments.navigation.TopBarFragment;
 import com.inverce.mod.core.IM;
 import com.inverce.mod.events.Event;
 
@@ -102,6 +103,11 @@ public class MainActivity extends BaseActivity implements ActivityActions{
     }
 
     @Override
+    public TopBarInteractions getTopBar() {
+        return topBar;
+    }
+
+    @Override
     public void removeBackstack() {
         FragmentManager fm = this.getSupportFragmentManager();
         for (int i = 0; i < fm.getBackStackEntryCount(); ++i) {
@@ -126,12 +132,12 @@ public class MainActivity extends BaseActivity implements ActivityActions{
     }
 
     public void navigationBar() {
-//        TopBarFragment fragment = TopBarFragment.newInstance();
-//        FragmentManager manager = getSupportFragmentManager();
-//        FragmentTransaction transaction = manager.beginTransaction();
-//        transaction.replace(R.id.top_bar, fragment, "nav");
-//        transaction.commit();
-//        topBar = fragment;
+        TopBarFragment fragment = TopBarFragment.newInstance();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.top_bar, fragment, "nav");
+        transaction.commit();
+        topBar = fragment;
     }
     void setDrawerFullWidth() {
         DisplayMetrics metrics = new DisplayMetrics();

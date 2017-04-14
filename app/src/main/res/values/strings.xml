@@ -9,7 +9,10 @@
     <string name="password_forgot">W razie problemów z logowaniem prosimy o kontakt na andres dgrzelak@9bits.pl</string>
     <string name="login_button_text">Zaloguj się</string>
 
+    <!--DESKTOP PAGE-->
+    <string name="hello_text">Witaj</string>
     <!--FontAwesome-->
     <string name="font_awesome_icon_eye">&#xf06e;</string>
+    <string name="font_awesome_left_arrow">&#xf104;</string>
 
 </resources>

@@ -1,6 +1,7 @@
 package com.example.damian.projektgrupowy.interfaces;
 
 import com.example.damian.projektgrupowy.core.BaseFragment;
+import com.example.damian.projektgrupowy.model.interfaces.TopBarInteractions;
 import com.inverce.mod.events.annotation.Listener;
 
 /**
@@ -13,7 +14,7 @@ public interface ActivityActions extends Listener {
     void removeBackstack();
     void backPress();
 
-    //TopBarInteractions getTopBar();
+    TopBarInteractions getTopBar();
 
    // BottomBarInteractions getBottomBar();
 

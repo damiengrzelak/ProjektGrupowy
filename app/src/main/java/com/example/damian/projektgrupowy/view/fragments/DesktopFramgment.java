@@ -25,7 +25,7 @@ public class DesktopFramgment extends BaseFragment {
                 .done();
     }
 
-    TextView test;
+    TextView helloText;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,10 +42,37 @@ public class DesktopFramgment extends BaseFragment {
         View view;
 
         view = inflater.inflate(R.layout.fragment_home_page, container, false);
-
-        test = (TextView) view.findViewById(R.id.textView);
-        test.setText("Witaj "+user.getName());
+        findViews(view);
+        fillViewsWithData();
 
         return view;
+    }
+    public void findViews(View view){
+        helloText = (TextView) view.findViewById(R.id.hello_text);
+    }
+    public void fillViewsWithData(){
+        helloText.setText(getResources().getText(R.string.hello_text)+" "+user.getName());
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (getActions() != null) {
+            getActions().getTopBar().setVisibility(true);
+            getActions().getTopBar().setBackButtonVisibility(false);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (getActions() != null) {
+            getActions().getTopBar().setVisibility(false);
+            getActions().getTopBar().setBackButtonVisibility(true);
+        }
     }
 }
