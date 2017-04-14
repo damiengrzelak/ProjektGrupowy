@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.damian.projektgrupowy.App;
 import com.example.damian.projektgrupowy.R;
 import com.example.damian.projektgrupowy.core.BaseFragment;
+import com.example.damian.projektgrupowy.model.accounts.Person;
 import com.example.damian.projektgrupowy.view.custom.FontAwesome;
 
 /**
@@ -104,11 +105,24 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
         if (!log.equals("test") || !pass.equals("test")) {
             onLogInFailed();
         } else
-            Toast.makeText(getContext(), "Jest OK!", Toast.LENGTH_SHORT).show(); //TODO: GO TO MAIN PANEL
+        {
+            Person loggedPerson = new Person();
+            loggedPerson.setName(log);
+            loggedPerson.setPassword(pass);
+
+            DesktopFramgment desktopFramgment = new DesktopFramgment();
+            desktopFramgment.setUser(loggedPerson);
+
+            setFragment(desktopFramgment, false);
+
+//            DesktopFramgment.newInstance().setUser();
+        }
+           // Toast.makeText(getContext(), "Jest OK!", Toast.LENGTH_SHORT).show(); //TODO: GO TO MAIN PANEL
+
     }
 
     private void onLogInFailed() {
-        Toast.makeText(App.getAppContext(), R.string.wrong_login_data, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), R.string.wrong_login_data, Toast.LENGTH_SHORT).show();
     }
 
     private boolean checkStatus(boolean isClicked) {
