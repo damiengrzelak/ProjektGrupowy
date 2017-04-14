@@ -37,6 +37,8 @@ import static com.example.damian.projektgrupowy.App.getAppContext;
  */
 
 public class TitleCardView  extends FrameLayout implements AdapterView.OnItemSelectedListener {
+    private static final int BORDER_WIDTH = 2;
+
     private RelativeLayout headerLayout;
     private TextView titleText;
     private TextView subtitleText;
@@ -115,7 +117,7 @@ public class TitleCardView  extends FrameLayout implements AdapterView.OnItemSel
                 setVisibleBorder(a.getBoolean(R.styleable.TitleCardView_visibleBorder, false));
 
                 // OTHER
-                setAccentColor(a.getColor(R.styleable.TitleCardView_colorAccentBright, color(R.color.gray_light)));
+                setAccentColor(a.getColor(R.styleable.TitleCardView_colorAccentBright, color(R.color.background_light_color)));
                 setSpinnerVisibilty(a.getBoolean(R.styleable.TitleCardView_spinnerVisibility, false));
 
             } finally {
@@ -126,10 +128,8 @@ public class TitleCardView  extends FrameLayout implements AdapterView.OnItemSel
 
     public void setSpinnerData(List<String> spinnerList) {
         if (isSpinnerVisible) {
-            adapter = new SpinnerAdapter(spinnerList);
+            //adapter = new SpinnerAdapter(spinnerList);
             spinner.setAdapter(adapter);
-
-
             spinner.setOnItemSelectedListener(this);
         }
     }
