@@ -65,9 +65,8 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
         if (getActions() != null) {
             // getActions().getBottomBar().setVisibility(false);
             // getActions().enableLeftMenuSwype(false);
-            // getActions().getTopBar().setVisibility(true);
-            // getActions().getTopBar().setNotificationButtonVisibility(false);
-            // getActions().getTopBar().setBackButtonVisibility(false);
+             getActions().getTopBar().setVisibility(false);
+             getActions().getTopBar().setBackButtonVisibility(false);
             // getActions().getTopBar().setLogoClickable(false);
         }
     }
@@ -77,9 +76,9 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
         super.onStop();
         if (getActions() != null) {
 //            getActions().getBottomBar().setVisibility(true);
-//            getActions().getTopBar().setVisibility(true);
+            getActions().getTopBar().setVisibility(false);
 //            getActions().enableLeftMenuSwype(true);
-//            getActions().getTopBar().setBackButtonVisibility(true);
+            getActions().getTopBar().setBackButtonVisibility(false);
 //            getActions().getTopBar().setNotificationButtonVisibility(true);
 //            getActions().getTopBar().setLogoClickable(true);
         }
@@ -114,10 +113,7 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
             desktopFramgment.setUser(loggedPerson);
 
             setFragment(desktopFramgment, false);
-
-//            DesktopFramgment.newInstance().setUser();
         }
-           // Toast.makeText(getContext(), "Jest OK!", Toast.LENGTH_SHORT).show(); //TODO: GO TO MAIN PANEL
 
     }
 

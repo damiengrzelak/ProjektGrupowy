@@ -13,6 +13,49 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <declare-styleable name="TitleCardView">
+        <!--TITLE HEADER-->
+        <attr name="titleVerticalPaddings" format="dimension" />
+        <attr name="titleHorizontalPaddings" format="dimension" />
+
+        <!--TITLE-->
+        <attr name="titleText" format="string" />
+        <attr name="titleTextColor" format="color" />
+        <attr name="titleTextSize" format="dimension" />
+        <attr name="titleFont" format="enum">
+            <enum name="REGULAR" value="0" />
+            <enum name="BOLD" value="1" />
+        </attr>
+        <attr name="titleGravity" format="enum">
+            <enum name="CENTER" value="17" />
+            <enum name="LEFT" value="3" />
+            <enum name="RIGHT" value="5" />
+        </attr>
+
+        <!--SUBTITLE-->
+        <attr name="subtitleTextSize" format="dimension" />
+        <attr name="subtitleTextColor" format="color" />
+        <attr name="subtitleVisibility" format="boolean" />
+        <attr name="subtitleGravity" format="enum">
+            <enum name="CENTER" value="17" />
+            <enum name="LEFT" value="3" />
+            <enum name="RIGHT" value="5" />
+        </attr>
+
+        <!--CARDVIEW-->
+        <attr name="cardviewElevation" format="dimension" />
+        <attr name="visibleBorder" format="boolean" />
+        <attr name="cardviewRadius" format="dimension" />
+        <attr name="colorAccentBright" format="color" />
+        <attr name="colorAccentFaint" format="color" />
+        <attr name="iconInfoIcon" format="reference" />
+        <attr name="iconInfoVisible" format="boolean" />
+        <attr name="spinnerVisibility" format="boolean" />
+    </declare-styleable>
+
+
+
+
     <style name="App.Button.Login.Green.5dp.noShadow" parent="Widget.AppCompat.Button">
         <item name="android:background">
             @drawable/red_button_no_shadow_5dp_radius_selector_background
@@ -22,5 +65,29 @@
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/large_text</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="hello_text" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textColor">@color/text_dark_color</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="efficiency_indicators">
+        <item name="titleTextColor">@color/white</item>
+        <item name="titleTextSize">@dimen/medium_text</item>
+        <item name="titleHorizontalPaddings">5dp</item>
+        <item name="titleVerticalPaddings">7dp</item>
+    </style>
+    <style name="pie_text_view" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">@color/text_dark_color</item>
     </style>
 </resources>

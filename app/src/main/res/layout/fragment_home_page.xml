@@ -1,11 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:text="TextView"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light_color"
+    android:orientation="vertical"
+    android:overScrollMode="never"
+    android:paddingLeft="@dimen/smaller_spacing"
+    android:paddingRight="@dimen/smaller_spacing"
+    android:scrollbars="none">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/indicators_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView" />
-</LinearLayout>
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="30dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/hello_text"
+            android:background="@drawable/separator_line"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/hello_text"
+            style="@style/hello_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_text" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/hello_text"
+            android:background="@drawable/separator_line"
+            tools:ignore="RtlHardcoded" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.example.damian.projektgrupowy.view.custom.TitleCardView
+                android:id="@+id/fragment_home_punctuality"
+                style="@style/efficiency_indicators"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:colorAccentBright="@color/red_pepper"
+                app:titleText="test">
+
+                <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/super_small_spacing"
+                    tools:padding="0dp">
+
+
+                    <TextView
+                        android:id="@+id/desktop_fragment_my_profile"
+                        style="@style/pie_text_view"
+                        fontPath="fonts/fontawesome-webfont.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile"
+                        tools:layout_editor_absoluteX="374dp"
+                        tools:layout_editor_absoluteY="40dp"
+                        tools:ignore="MissingPrefix,RtlHardcoded"/>
+
+                </android.support.constraint.ConstraintLayout>
+
+            </com.example.damian.projektgrupowy.view.custom.TitleCardView>
+
+            <com.example.damian.projektgrupowy.view.custom.TitleCardView
+                android:id="@+id/fragment_home_completeness_delivery"
+                style="@style/efficiency_indicators"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:colorAccentBright="@color/red_pepper"
+                app:titleText="test">
+
+                <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/super_small_spacing"
+                    tools:padding="0dp">
+
+
+                    <TextView
+                        android:id="@+id/desktop_fragment_achivements"
+                        style="@style/pie_text_view"
+                        fontPath="fonts/fontawesome-webfont.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/achivenents"
+                        tools:layout_editor_absoluteX="442dp"
+                        tools:layout_editor_absoluteY="40dp"
+                        tools:ignore="MissingPrefix,RtlHardcoded"/>
+                </android.support.constraint.ConstraintLayout>
+            </com.example.damian.projektgrupowy.view.custom.TitleCardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.example.damian.projektgrupowy.view.custom.TitleCardView
+                android:id="@+id/fragment_home_perfect_order"
+                style="@style/efficiency_indicators"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:colorAccentBright="@color/red_pepper"
+                app:titleText="test">
+
+                <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/super_small_spacing"
+                    tools:padding="0dp">
+
+
+                    <TextView
+                        android:id="@+id/desktop_fragment_map"
+                        style="@style/pie_text_view"
+                        fontPath="fonts/fontawesome-webfont.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/map"
+                        tools:layout_editor_absoluteX="374dp"
+                        tools:layout_editor_absoluteY="83dp"
+                        tools:ignore="MissingPrefix,RtlHardcoded"/>
+                </android.support.constraint.ConstraintLayout>
+            </com.example.damian.projektgrupowy.view.custom.TitleCardView>
+
+            <com.example.damian.projektgrupowy.view.custom.TitleCardView
+                android:id="@+id/fragment_home_delivery_level"
+                style="@style/efficiency_indicators"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:colorAccentBright="@color/red_pepper"
+                app:titleText="Informator">
+
+                <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/super_small_spacing"
+                    tools:padding="0dp">
+
+
+                    <TextView
+                        android:id="@+id/desktop_fragment_heart"
+                        style="@style/pie_text_view"
+                        fontPath="fonts/fontawesome-webfont.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/font_awesome_heart"
+                        tools:layout_editor_absoluteX="442dp"
+                        tools:layout_editor_absoluteY="83dp"
+                        tools:ignore="MissingPrefix,RtlHardcoded"/>
+                </android.support.constraint.ConstraintLayout>
+            </com.example.damian.projektgrupowy.view.custom.TitleCardView>
+
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
