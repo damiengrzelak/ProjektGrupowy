@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.damian.projektgrupowy.App;
 import com.example.damian.projektgrupowy.R;
 import com.example.damian.projektgrupowy.core.BaseFragment;
+import com.example.damian.projektgrupowy.model.accounts.Person;
 import com.example.damian.projektgrupowy.view.custom.FontAwesome;
 
 /**
@@ -64,9 +65,8 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
         if (getActions() != null) {
             // getActions().getBottomBar().setVisibility(false);
             // getActions().enableLeftMenuSwype(false);
-            // getActions().getTopBar().setVisibility(true);
-            // getActions().getTopBar().setNotificationButtonVisibility(false);
-            // getActions().getTopBar().setBackButtonVisibility(false);
+             getActions().getTopBar().setVisibility(false);
+             getActions().getTopBar().setBackButtonVisibility(false);
             // getActions().getTopBar().setLogoClickable(false);
         }
     }
@@ -76,9 +76,9 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
         super.onStop();
         if (getActions() != null) {
 //            getActions().getBottomBar().setVisibility(true);
-//            getActions().getTopBar().setVisibility(true);
+            getActions().getTopBar().setVisibility(false);
 //            getActions().enableLeftMenuSwype(true);
-//            getActions().getTopBar().setBackButtonVisibility(true);
+            getActions().getTopBar().setBackButtonVisibility(false);
 //            getActions().getTopBar().setNotificationButtonVisibility(true);
 //            getActions().getTopBar().setLogoClickable(true);
         }
@@ -104,11 +104,21 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
         if (!log.equals("test") || !pass.equals("test")) {
             onLogInFailed();
         } else
-            Toast.makeText(getContext(), "Jest OK!", Toast.LENGTH_SHORT).show(); //TODO: GO TO MAIN PANEL
+        {
+            Person loggedPerson = new Person();
+            loggedPerson.setName(log);
+            loggedPerson.setPassword(pass);
+
+            DesktopFramgment desktopFramgment = new DesktopFramgment();
+            desktopFramgment.setUser(loggedPerson);
+
+            setFragment(desktopFramgment, false);
+        }
+
     }
 
     private void onLogInFailed() {
-        Toast.makeText(App.getAppContext(), R.string.wrong_login_data, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), R.string.wrong_login_data, Toast.LENGTH_SHORT).show();
     }
 
     private boolean checkStatus(boolean isClicked) {

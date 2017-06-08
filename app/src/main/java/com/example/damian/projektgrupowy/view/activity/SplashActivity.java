@@ -15,8 +15,13 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        try{
         startActivity(intent(PhoneActivity.class));
-        finish();
+        Thread.sleep(5000);
+            finish();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     private Intent intent(Class<? extends Activity> clazz) {

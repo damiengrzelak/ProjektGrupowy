@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProjektGrupowy</string>
+    <string name="app_name">Krwiodactwo</string>
 
     <!--LOGIN PAGEES -->
     <string name="wrong_login_data">Błędne dane logowania!</string>
@@ -9,7 +9,19 @@
     <string name="password_forgot">W razie problemów z logowaniem prosimy o kontakt na andres dgrzelak@9bits.pl</string>
     <string name="login_button_text">Zaloguj się</string>
 
+    <!--DESKTOP PAGE-->
+    <string name="hello_text">Witaj</string>
+    <string name="infomator">Informator</string>
+    <string name="map">Mapa</string>
+    <string name="profile">Mój profil</string>
+    <string name="achivenents">Moje osiągnięcia</string>
+
     <!--FontAwesome-->
     <string name="font_awesome_icon_eye">&#xf06e;</string>
+    <string name="font_awesome_left_arrow">&#xf104;</string>
+    <string name="font_awesome_heart">&#xf21e;</string>
+    <string name="font_awesome_profile">&#xf007;</string>
+    <string name="font_awesome_map">&#xf279;</string>
+    <string name="font_awesome_achivements">&#xf005;</string>
 
 </resources>
