@@ -75,6 +75,8 @@ public class TopBarFragment extends BaseFragment implements TopBarInteractions, 
 
     @Override
     public void showBackIcon(boolean visible) {
+        if(visible) {backIcon.setVisibility(View.VISIBLE);}
+        else {backIcon.setVisibility(View.GONE);}
 
     }
 
@@ -85,7 +87,7 @@ public class TopBarFragment extends BaseFragment implements TopBarInteractions, 
 
     @Override
     public void setTitle(@StringRes int res) {
-
+        title.setText(getResources().getString(res));
     }
 
     @Override

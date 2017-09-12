@@ -12,15 +12,11 @@ import com.example.damian.projektgrupowy.R;
 import com.example.damian.projektgrupowy.core.BaseFragment;
 import com.example.damian.projektgrupowy.model.accounts.Person;
 
-import org.w3c.dom.Text;
 
-/**
- * Created by Damian on 14.04.2017.
- */
-
-public class DesktopFramgment extends BaseFragment {
+public class DesktopFramgment extends BaseFragment implements View.OnClickListener{
 
     Person user = new Person();
+
     public static DesktopFramgment newInstance(){
         return BaseFragment.newBuilder(DesktopFramgment.class)
                 .done();
@@ -47,12 +43,22 @@ public class DesktopFramgment extends BaseFragment {
         findViews(view);
         setTypeface();
         fillViewsWithData();
+        setListeners();
+
 
         return view;
     }
+
+    private void setListeners() {
+        informatorButton.setOnClickListener(this);
+        myProfile.setOnClickListener(this);
+        myAchivemenets.setOnClickListener(this);
+        mapButton.setOnClickListener(this);
+    }
+
     public void findViews(View view){
         helloText = (TextView) view.findViewById(R.id.hello_text);
-        informatorButton = (TextView) view.findViewById(R.id.desktop_fragment_heart);
+        informatorButton = (TextView) view.findViewById(R.id.desktop_fragment_informator);
         myProfile = (TextView) view.findViewById(R.id.desktop_fragment_my_profile);
         myAchivemenets = (TextView) view.findViewById(R.id.desktop_fragment_achivements);
         mapButton = (TextView) view.findViewById(R.id.desktop_fragment_map);
@@ -92,6 +98,23 @@ public class DesktopFramgment extends BaseFragment {
         if (getActions() != null) {
             getActions().getTopBar().setVisibility(false);
             getActions().getTopBar().setBackButtonVisibility(true);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.desktop_fragment_informator:
+                setFragment(InformatorFragment.newInstance(),true);
+                break;
+            case R.id.desktop_fragment_my_profile:
+                setFragment(MyProfileFragment.newInstance(user),true);
+                break;
+            case R.id.desktop_fragment_achivements:
+                setFragment(MyAchivementsFragment.newInstance(user), true);
+                break;
+            case R.id.desktop_fragment_map:
+                break;
         }
     }
 }

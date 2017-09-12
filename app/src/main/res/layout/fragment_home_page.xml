@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:colorAccentBright="@color/red_pepper"
-                app:titleText="test">
+                app:titleText="@string/profile">
 
                 <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:layout_width="match_parent"
@@ -97,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:colorAccentBright="@color/red_pepper"
-                app:titleText="test">
+                app:titleText="@string/achivenents">
 
                 <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:layout_width="match_parent"
@@ -133,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:colorAccentBright="@color/red_pepper"
-                app:titleText="test">
+                app:titleText="@string/map">
 
                 <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:layout_width="match_parent"
@@ -172,7 +172,7 @@
 
 
                     <TextView
-                        android:id="@+id/desktop_fragment_heart"
+                        android:id="@+id/desktop_fragment_informator"
                         style="@style/pie_text_view"
                         fontPath="fonts/fontawesome-webfont.ttf"
                         android:layout_width="wrap_content"

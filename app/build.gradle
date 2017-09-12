@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+def dbflow_version = "4.0.0-beta7"
+
 android {
     compileSdkVersion 24
     buildToolsVersion "25.0.0"
@@ -62,4 +64,16 @@ dependencies {
 
     // BADGE
     compile 'com.nex3z:notification-badge:0.2.0'
+
+    //Add retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+
+    //Add glide
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+    //Add dbflow
+    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
 }

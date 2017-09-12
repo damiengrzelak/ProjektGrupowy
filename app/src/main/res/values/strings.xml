@@ -24,4 +24,24 @@
     <string name="font_awesome_map">&#xf279;</string>
     <string name="font_awesome_achivements">&#xf005;</string>
 
+    <!--USER PAGE-->
+    <string name="user_name">Imię: </string>
+    <string name="user_surname">Nazwisko: </string>
+    <string name="user_email">Email: </string>
+    <string name="user_address">Adres: </string>
+
+    <!--MY ACHIVEMENTS PAGE-->
+    <string name="first_blood">Pierwsza krew</string>
+    <string name="first_litr">Pierwszy litr!</string>
+    <string name="helping_hand">Pomocna dłoń</string>
+    <string name="honor_man">Honorowy dawca</string>
+    <string name="first_blood_achive">Oddałeś krew poraz pierwszy po zarejestrowaniu w aplikacji!</string>
+    <string name="first_blood_no_achive">Oddaj krew poraz pierwszy po zarejestrowaniu w aplikacji!</string>
+    <string name="achive">Brawo, zdobyłeś to osiągnięcie!</string>
+    <string name="no_achive">Oddałeś: %1$dml/%2$dml. Brakuje Ci jeszcze %3$dml.</string>
+
+    <string name="font_awesome_first_blood">&#xf043;</string>
+    <string name="font_awesome_first_litr">&#xf0fc;</string>
+    <string name="font_awesome_helping_hand">&#xf25b;</string>
+    <string name="font_awesome_honor_man">&#xf091;</string>
 </resources>

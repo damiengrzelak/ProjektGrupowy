@@ -12,11 +12,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.damian.projektgrupowy.App;
 import com.example.damian.projektgrupowy.R;
 import com.example.damian.projektgrupowy.core.BaseFragment;
 import com.example.damian.projektgrupowy.model.accounts.Person;
+import com.example.damian.projektgrupowy.model.accounts.Persons;
+import com.example.damian.projektgrupowy.retrofit.Rest;
 import com.example.damian.projektgrupowy.view.custom.FontAwesome;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Damian on 08.04.2017.
@@ -28,6 +37,7 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
     private EditText password;
     private TextView eyeShowPassword;
     private boolean isClicked = false;
+    private List<Person> user;
 
     public static LoginFragment newInstance() {
         return new LoginFragment();
@@ -38,13 +48,36 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         findViews(view);
+        initDataBase();
         setListeners();
 
         return view;
     }
 
+    private void initDataBase() {
+        Rest.init();
+        Rest.getAppService().loadData().enqueue(new Callback<Persons>() {
+
+            @Override
+            public void onResponse(Call<Persons> call, Response<Persons> response) {
+                user = response.body().getLoadData();
+
+                if (user == null) {
+                    Toast.makeText(getContext(), "Data is empty", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Persons> call, Throwable t) {
+                if (user == null) {
+                    Toast.makeText(getContext(), "Error during download data :( ", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
     private void findViews(View view) {
-        Typeface font = Typeface.createFromAsset( getContext().getAssets(), "fonts/fontawesome-webfont.ttf" );
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/fontawesome-webfont.ttf");
         loginButton = (Button) view.findViewById(R.id.fragment_login_button);
         login = (EditText) view.findViewById(R.id.fragment_login_login);
         password = (EditText) view.findViewById(R.id.fragment_login_password);
@@ -65,8 +98,8 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
         if (getActions() != null) {
             // getActions().getBottomBar().setVisibility(false);
             // getActions().enableLeftMenuSwype(false);
-             getActions().getTopBar().setVisibility(false);
-             getActions().getTopBar().setBackButtonVisibility(false);
+            getActions().getTopBar().setVisibility(false);
+            getActions().getTopBar().setBackButtonVisibility(false);
             // getActions().getTopBar().setLogoClickable(false);
         }
     }
@@ -98,21 +131,21 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
     }
 
     private void logIn() {
-        String log = login.getText().toString().trim();
-        String pass = password.getText().toString().trim();
+        boolean isOk = false;
+        for (Person p : user) {
+            if (p.getLogin().equals(login.getText().toString()) && p.getPassword().equals(password.getText().toString())) {
+                Person loggedPerson = p;
 
-        if (!log.equals("test") || !pass.equals("test")) {
+                DesktopFramgment desktopFramgment = new DesktopFramgment();
+                desktopFramgment.setUser(loggedPerson);
+
+                setFragment(desktopFramgment, false);
+                isOk = true;
+            }
+
+        }
+        if(!isOk){
             onLogInFailed();
-        } else
-        {
-            Person loggedPerson = new Person();
-            loggedPerson.setName(log);
-            loggedPerson.setPassword(pass);
-
-            DesktopFramgment desktopFramgment = new DesktopFramgment();
-            desktopFramgment.setUser(loggedPerson);
-
-            setFragment(desktopFramgment, false);
         }
 
     }
