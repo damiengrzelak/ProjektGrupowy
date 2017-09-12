@@ -6,4 +6,6 @@ public interface TopBarInteractions {
     void showBackIcon(boolean visible);
     void showLogoutIcon(boolean visible);
     void setTitle(@StringRes int res);
+    void setVisibility(boolean visibility);
+    void setBackButtonVisibility(boolean visibility);
 }
