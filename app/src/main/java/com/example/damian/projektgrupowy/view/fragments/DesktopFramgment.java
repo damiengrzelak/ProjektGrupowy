@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.damian.projektgrupowy.R;
@@ -23,7 +24,7 @@ public class DesktopFramgment extends BaseFragment implements View.OnClickListen
     }
 
     TextView helloText;
-    TextView informatorButton, myProfile, myAchivemenets, mapButton;
+    TextView informatorButton, myProfile, myAchivemenets, mapButton,symulation;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class DesktopFramgment extends BaseFragment implements View.OnClickListen
         myProfile.setOnClickListener(this);
         myAchivemenets.setOnClickListener(this);
         mapButton.setOnClickListener(this);
+        symulation.setOnClickListener(this);
     }
 
     public void findViews(View view){
@@ -62,6 +64,7 @@ public class DesktopFramgment extends BaseFragment implements View.OnClickListen
         myProfile = (TextView) view.findViewById(R.id.desktop_fragment_my_profile);
         myAchivemenets = (TextView) view.findViewById(R.id.desktop_fragment_achivements);
         mapButton = (TextView) view.findViewById(R.id.desktop_fragment_map);
+        symulation = (Button) view.findViewById(R.id.fragment_home_page_symulacja);
     }
     public void setTypeface(){
         Typeface font = Typeface.createFromAsset( getContext().getAssets(), "fonts/fontawesome-webfont.ttf" );
@@ -114,7 +117,10 @@ public class DesktopFramgment extends BaseFragment implements View.OnClickListen
                 setFragment(MyAchivementsFragment.newInstance(user), true);
                 break;
             case R.id.desktop_fragment_map:
+                setFragment(new MapFragment(), true);
                 break;
+            case R.id.fragment_home_page_symulacja:
+                setFragment(SymulationFragment.newInstance(), true);
         }
     }
 }

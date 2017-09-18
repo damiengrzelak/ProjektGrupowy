@@ -44,4 +44,7 @@
     <string name="font_awesome_first_litr">&#xf0fc;</string>
     <string name="font_awesome_helping_hand">&#xf25b;</string>
     <string name="font_awesome_honor_man">&#xf091;</string>
+
+
+    <string name="google_maps_key">AIzaSyB6UI1kNBof_m2_Olj6a2N3045O9XqjIB8</string>
 </resources>
