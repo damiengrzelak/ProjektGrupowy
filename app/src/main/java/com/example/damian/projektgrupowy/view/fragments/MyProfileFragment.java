@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.example.damian.projektgrupowy.R;
 import com.example.damian.projektgrupowy.core.BaseFragment;
 import com.example.damian.projektgrupowy.model.accounts.Person;
+import com.example.damian.projektgrupowy.view.fragments.navigation.TopBarFragment;
 
 /**
  * Created by Damian on 12.09.2017.
@@ -46,8 +47,13 @@ public class MyProfileFragment extends BaseFragment {
         view = inflater.inflate(R.layout.fragment_my_profile, container, false);
         findViews(view);
         fillViewsWithData();
-
+        setTopBar();
         return view;
+    }
+
+    private void setTopBar() {
+        //TopBarFragment topbar = TopBarFragment.newInstance();
+        //topbar.setBackButtonVisibility(true);
     }
 
     public void findViews(View view){
