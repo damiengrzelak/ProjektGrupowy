@@ -13,6 +13,8 @@ public interface ActivityActions extends Listener {
     void popFragmentFromBackstack();
     void removeBackstack();
     void backPress();
+    void setFromNotification(boolean notification);
+    boolean checkIsFromNotification();
 
     TopBarInteractions getTopBar();
 

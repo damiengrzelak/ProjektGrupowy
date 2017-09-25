@@ -16,10 +16,13 @@ import com.bumptech.glide.Glide;
 import com.example.damian.projektgrupowy.App;
 import com.example.damian.projektgrupowy.R;
 import com.example.damian.projektgrupowy.core.BaseFragment;
+import com.example.damian.projektgrupowy.firebase.MyFirebaseMessagingService;
 import com.example.damian.projektgrupowy.model.accounts.Person;
 import com.example.damian.projektgrupowy.model.accounts.Persons;
 import com.example.damian.projektgrupowy.retrofit.Rest;
 import com.example.damian.projektgrupowy.view.custom.FontAwesome;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -38,6 +41,7 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
     private TextView eyeShowPassword;
     private boolean isClicked = false;
     private List<Person> user;
+    private boolean fromNotification;
 
     public static LoginFragment newInstance() {
         return new LoginFragment();
@@ -132,6 +136,7 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
 
     private void logIn() {
         boolean isOk = false;
+
         for (Person p : user) {
             if (p.getLogin().equals(login.getText().toString()) && p.getPassword().equals(password.getText().toString())) {
                 Person loggedPerson = p;
@@ -139,8 +144,13 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
                 DesktopFramgment desktopFramgment = new DesktopFramgment();
                 desktopFramgment.setUser(loggedPerson);
 
+                if(fromNotification){
+                    setFragment(new MapFragment(),false);
+                    isOk = true;
+                } else {
                 setFragment(desktopFramgment, false);
-                isOk = true;
+                isOk = true;}
+
             }
 
         }
@@ -171,5 +181,9 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
             password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         }
         password.setSelection(password.length());
+    }
+
+    public void setFromNotification(boolean showFromNotification) {
+        this.fromNotification = showFromNotification;
     }
 }

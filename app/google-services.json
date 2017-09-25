@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "449741365908",
+    "firebase_url": "https://projektgrupowy-179808.firebaseio.com",
+    "project_id": "projektgrupowy-179808",
+    "storage_bucket": "projektgrupowy-179808.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449741365908:android:c01b868220fa4838",
+        "android_client_info": {
+          "package_name": "com.example.damian.projektgrupowy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "449741365908-cdbsl4co2fonjh4lksqp1ckl83078mio.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.damian.projektgrupowy",
+            "certificate_hash": "16be88dbed3d4d43d36f4665fd3464cc71b67044"
+          }
+        },
+        {
+          "client_id": "449741365908-gc39cav1r4rd1l3dkfi79o04c0msamki.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9h018KMueIERuAmt4wzCVjId6Nx06988"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "449741365908-gc39cav1r4rd1l3dkfi79o04c0msamki.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
